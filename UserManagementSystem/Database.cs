@@ -15,7 +15,7 @@ namespace UserManagementSystem
             SqliteConnection connection = new SqliteConnection(CONNECTION_DATA_SOURCE);
 
             string query = @"
-                            INSERT INTO User (FIRST_NAME, LAST_NAME)
+                            INSERT INTO User (USERNAME, PASSWORD)
                             VALUES (@username, @password);
                             ";
 
