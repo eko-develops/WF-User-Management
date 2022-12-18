@@ -1,10 +1,15 @@
 namespace UserManagementSystem
 {
-    public partial class Form1 : Form
+    public partial class loginForm : Form
     {
-        public Form1()
+        public loginForm()
         {
             InitializeComponent();
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
