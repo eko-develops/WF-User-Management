@@ -1,12 +1,11 @@
 ﻿
 
 using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace UserManagementSystem
 {
-    class Database : DbContext
+    class Database
     {
 
         private const string CONNECTION_DATA_SOURCE = "DataSource=database.db";
