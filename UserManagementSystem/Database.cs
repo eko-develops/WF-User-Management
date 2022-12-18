@@ -45,6 +45,8 @@ namespace UserManagementSystem
                                                          PASSWORD text not null);
                                       INSERT INTO User (USERNAME, PASSWORD)
                                       VALUES ('john doe','123');
+                                      INSERT INTO User (USERNAME, PASSWORD)
+                                      VALUES ('jane doe','456');
                                       ";
 
                     SqliteCommand command = new SqliteCommand(commandText, connection);
