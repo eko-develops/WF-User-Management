@@ -22,8 +22,8 @@ namespace UserManagementSystem
             SqliteCommand command = new SqliteCommand(query, connection);
 
             SqliteParameter[] @params = {
-                Database.CreateSqliteParam("@username", 3, username),
-                Database.CreateSqliteParam("@password", 3, password)
+                CreateSqliteParam("@username", 3, username),
+                CreateSqliteParam("@password", 3, password)
                     };
 
             command.Parameters.AddRange(@params);
@@ -40,6 +40,7 @@ namespace UserManagementSystem
                     // create the table with default schema
                     SqliteConnection connection = new SqliteConnection(CONNECTION_DATA_SOURCE);
                     string commandText = @"
+                                      DROP TABLE User;
                                       CREATE TABLE IF NOT EXISTS User (ID integer primary key autoincrement,
                                                          USERNAME text not null,
                                                          PASSWORD text not null);
@@ -67,7 +68,7 @@ namespace UserManagementSystem
                 }
         }
 
-        public static SqliteParameter CreateSqliteParam(string variable, int type, string value)
+        private static SqliteParameter CreateSqliteParam(string variable, int type, string value)
         {
             SqliteParameter param = new SqliteParameter(variable, type);
             param.Value = value;

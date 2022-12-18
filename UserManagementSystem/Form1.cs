@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore.Sqlite;
+using System.Data;
 
 namespace UserManagementSystem
 {
@@ -26,6 +27,28 @@ namespace UserManagementSystem
             usernameField.Clear();
             passwordField.Clear();
 
+        }
+
+        private void loadData_Click(object sender, EventArgs e)
+        {
+            SqliteConnection connection = new SqliteConnection("DataSource=database.db");
+
+            string query = @"
+                            SELECT * FROM User;
+                            ";
+
+            SqliteCommand command = new SqliteCommand(query, connection);
+
+            connection.Open();
+
+            SqliteDataReader reader = command.ExecuteReader();
+            DataTable table = new DataTable();
+
+            table.Load(reader);
+            dataGridView.DataSource = table;
+
+            reader.Close();
+            connection.Close();
         }
     }
 }

@@ -1,3 +1,6 @@
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 namespace UserManagementSystem
 {
     internal static class Program
@@ -11,7 +14,6 @@ namespace UserManagementSystem
             // when application starts, connect to the database
             // if database does not have table User, create it
             Database.SetUp();
-
 
 
             // To customize application configuration such as set high DPI settings or default font,
