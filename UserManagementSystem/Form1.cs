@@ -1,3 +1,6 @@
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore.Sqlite;
+
 namespace UserManagementSystem
 {
     public partial class loginForm : Form
@@ -9,6 +12,19 @@ namespace UserManagementSystem
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
+            // we are submitting the form here to the database
+            // because we are in the UserManagementSystem namespace, we can directly access the fields by their name
+            string username;
+            string password;
+
+            username = usernameField.Text;
+            password = passwordField.Text;  // we'll need to hash the password eventually
+
+            Database.AddRow(username, password);
+
+            // clear fields
+            usernameField.Clear();
+            passwordField.Clear();
 
         }
     }
